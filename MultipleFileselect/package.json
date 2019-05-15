@@ -1,0 +1,20 @@
+{
+  "name": "MultipleFileselect",
+  "version": "0.0.1",
+  "description": "",
+  "cordova": {
+    "id": "com.cordova.sdk.multiplefileupload",
+    "platforms": [
+      "android"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "DEV",
+  "license": "ISC"
+}
+
+
+

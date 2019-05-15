@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.cordova.sdk.multiplefileupload" version="0.0.1." xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>MultipleFileselect</name>
+    <js-module name="MultipleFileselect" src="www/MultipleFileselect.js">
+        <clobbers target="cordova.plugins.MultipleFileselect" />
+    </js-module>
+     <platform name="android">
+    <framework src="com.android.support:appcompat-v7:27.1.1"/>
+     <framework src="com.android.support:recyclerview-v7:27.1.1" />
+     <framework src="com.android.support:design:27.1.1" />
+      <framework src="pub.devrel:easypermissions:0.3.0" />
+      <framework src="com.bm.photoview:library:1.4.1" />
+      <framework src="com.github.bumptech.glide:annotations:4.6.1" />
+      <framework src="com.github.bumptech.glide:glide:4.6.1" />
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="MultipleFileselect">
+                <param name="android-package" value="com.cordova.sdk.multiplefileupload.MultipleFileselect" />
+            </feature>
+        </config-file>
+<config-file target="AndroidManifest.xml" parent="/manifest/application">
+		 <activity
+            android:name="com.cordova.sdk.multiplefileupload.activity.ImagePickActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/vw_FilePickerTheme" />
+        <activity android:name="com.cordova.sdk.multiplefileupload.activity.ImageBrowserActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/vw_FilePickerTheme"
+            android:hardwareAccelerated="false" />
+        <activity android:name="com.cordova.sdk.multiplefileupload.activity.VideoPickActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/vw_FilePickerTheme" />
+        <activity android:name="com.cordova.sdk.multiplefileupload.activity.AudioPickActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/vw_FilePickerTheme" />
+        <activity android:name="com.cordova.sdk.multiplefileupload.activity.NormalFilePickActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/vw_FilePickerTheme" />
+        <activity android:name="com.cordova.sdk.multiplefileupload.activity.InitialActivity"
+            android:theme="@style/Theme.AppCompat.Light" />
+    <activity android:name="com.cordova.sdk.multiplefileupload.activity.BaseActivity"></activity>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.multiplefileupload.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+		</config-file>
+
+        
+        <source-file src="src/android/MultipleFileselect.java" target-dir="src/com/cordova/sdk/multiplefileupload/" />
+		<source-file src="src/android/Constant.java" target-dir="src/com/cordova/sdk/multiplefileupload/" />
+		<source-file src="src/android/DividerGridItemDecoration.java" target-dir="src/com/cordova/sdk/multiplefileupload/" />
+        <source-file src="src/android/DividerListItemDecoration.java" target-dir="src/com/cordova/sdk/multiplefileupload/" />
+        <source-file src="src/android/FolderListHelper.java" target-dir="src/com/cordova/sdk/multiplefileupload/" />
+        <source-file src="src/android/MaxHeightLayout.java" target-dir="src/com/cordova/sdk/multiplefileupload/" />
+        <source-file src="src/android/ToastUtil.java" target-dir="src/com/cordova/sdk/multiplefileupload/" />
+        <source-file src="src/android/Util.java" target-dir="src/com/cordova/sdk/multiplefileupload/" />
+         <source-file src="src/android/activity/InitialActivity.java" target-dir="src/com/cordova/sdk/multiplefileupload/activity/" />
+        <source-file src="src/android/activity/AudioPickActivity.java" target-dir="src/com/cordova/sdk/multiplefileupload/activity/" />
+        <source-file src="src/android/activity/BaseActivity.java" target-dir="src/com/cordova/sdk/multiplefileupload/activity/" />
+        <source-file src="src/android/activity/ImageBrowserActivity.java" target-dir="src/com/cordova/sdk/multiplefileupload/activity/" />
+        <source-file src="src/android/activity/ImagePickActivity.java" target-dir="src/com/cordova/sdk/multiplefileupload/activity/" />
+        <source-file src="src/android/activity/NormalFilePickActivity.java" target-dir="src/com/cordova/sdk/multiplefileupload/activity/" />
+        <source-file src="src/android/activity/VideoPickActivity.java" target-dir="src/com/cordova/sdk/multiplefileupload/activity/" />
+
+
+
+        <source-file src="src/android/adapter/AudioPickAdapter.java" target-dir="src/com/cordova/sdk/multiplefileupload/adapter/" />
+        <source-file src="src/android/adapter/BaseAdapter.java" target-dir="src/com/cordova/sdk/multiplefileupload/adapter/" />
+        <source-file src="src/android/adapter/FolderListAdapter.java" target-dir="src/com/cordova/sdk/multiplefileupload/adapter/" />
+        <source-file src="src/android/adapter/ImagePickAdapter.java" target-dir="src/com/cordova/sdk/multiplefileupload/adapter/" />
+        <source-file src="src/android/adapter/NormalFilePickAdapter.java" target-dir="src/com/cordova/sdk/multiplefileupload/adapter/" />
+        <source-file src="src/android/adapter/OnSelectStateListener.java" target-dir="src/com/cordova/sdk/multiplefileupload/adapter/" />
+        <source-file src="src/android/adapter/VideoPickAdapter.java" target-dir="src/com/cordova/sdk/multiplefileupload/adapter/" />
+
+
+
+
+        <source-file src="src/android/filter/FileFilter.java" target-dir="src/com/cordova/sdk/multiplefileupload/filter/" />
+
+        <source-file src="src/android/filter/callback/FileLoaderCallbacks.java" target-dir="src/com/cordova/sdk/multiplefileupload/filter/callback/" />
+        <source-file src="src/android/filter/callback/FilterResultCallback.java" target-dir="src/com/cordova/sdk/multiplefileupload/filter/callback/" />
+
+
+        <source-file src="src/android/filter/entity/AudioFile.java" target-dir="src/com/cordova/sdk/multiplefileupload/filter/entity/" />
+        <source-file src="src/android/filter/entity/BaseFile.java" target-dir="src/com/cordova/sdk/multiplefileupload/filter/entity/" />
+        <source-file src="src/android/filter/entity/Directory.java" target-dir="src/com/cordova/sdk/multiplefileupload/filter/entity/" />
+        <source-file src="src/android/filter/entity/ImageFile.java" target-dir="src/com/cordova/sdk/multiplefileupload/filter/entity/" />
+        <source-file src="src/android/filter/entity/NormalFile.java" target-dir="src/com/cordova/sdk/multiplefileupload/filter/entity/" />
+        <source-file src="src/android/filter/entity/VideoFile.java" target-dir="src/com/cordova/sdk/multiplefileupload/filter/entity/" />
+
+
+        <source-file src="src/android/filter/loader/AudioLoader.java" target-dir="src/com/cordova/sdk/multiplefileupload/filter/loader/" />
+        <source-file src="src/android/filter/loader/FileLoader.java" target-dir="src/com/cordova/sdk/multiplefileupload/filter/loader/" />
+        <source-file src="src/android/filter/loader/ImageLoader.java" target-dir="src/com/cordova/sdk/multiplefileupload/filter/loader/" />
+        <source-file src="src/android/filter/loader/VideoLoader.java" target-dir="src/com/cordova/sdk/multiplefileupload/filter/loader/" />
+
+
+
+	    <source-file src="res/android/drawable/vw_bg_folder_list.xml" target-dir="res/drawable/" />
+         <source-file src="res/android/drawable/vw_divider_rv.xml" target-dir="res/drawable/" />
+          <source-file src="res/android/drawable/vw_divider_rv_file.xml" target-dir="res/drawable/" />
+           <source-file src="res/android/drawable/vw_selector_cbx.xml" target-dir="res/drawable/" />
+            <source-file src="res/android/drawable/vw_selector_cbx_audio.xml" target-dir="res/drawable/" />
+
+
+            
+		
+
+
+        <source-file src="res/android/layout/vw_activity_audio_pick.xml" target-dir="res/layout/" />
+        <source-file src="res/android/layout/vw_activity_file_pick.xml" target-dir="res/layout/" />
+        <source-file src="res/android/layout/vw_activity_image_browser.xml" target-dir="res/layout/" />
+        <source-file src="res/android/layout/vw_activity_image_pick.xml" target-dir="res/layout/" />
+        <source-file src="res/android/layout/vw_activity_video_pick.xml" target-dir="res/layout/" />
+        <source-file src="res/android/layout/vw_layout_folder_list.xml" target-dir="res/layout/" />
+        <source-file src="res/android/layout/vw_layout_item_audio_pick.xml" target-dir="res/layout/" />
+        <source-file src="res/android/layout/vw_layout_item_folder_list.xml" target-dir="res/layout/" />
+        <source-file src="res/android/layout/vw_layout_item_image_pick.xml" target-dir="res/layout/" />
+        <source-file src="res/android/layout/vw_layout_item_normal_file_pick.xml" target-dir="res/layout/" />
+        <source-file src="res/android/layout/vw_layout_item_video_pick.xml" target-dir="res/layout/" />
+        <source-file src="res/android/layout/vw_layout_top_bar.xml" target-dir="res/layout/" />
+
+        
+
+        <source-file src="res/android/menu/vw_menu_audio_pick.xml" target-dir="res/menu/" />
+        <source-file src="res/android/menu/vw_menu_image_pick.xml" target-dir="res/menu/" />
+
+        <source-file src="res/android/values/colors.xml" target-dir="res/values/" />
+                <config-file parent="/resources" target="/res/values/strings.xml">
+            <string name="vw_confirm">Done</string>
+            <string name="vw_no_video_play_app">No App exists for playing video!</string>
+            <string name="vw_record_audio">Record Audio</string>
+            <string name="vw_rationale_storage">Need Reading Storage Permission for Picking Files</string>
+            <string name="vw_up_to_max">Already up to max</string>
+            <string name="vw_no_photo_app">No photo App in this phone!</string>
+            <string name="vw_no_audio_play_app">No App exists for playing audio!</string>
+            <string name="vw_no_video_app">No video App in this phone!</string>
+            <string name="vw_no_audio_app">No audio App in this phone!</string>
+            <string name="vw_all">All</string>
+        </config-file>
+        <source-file src="res/android/values/styles.xml" target-dir="res/values/" />
+
+
+        <source-file src="res/android/values-zh/strings.xml" target-dir="res/values-zh/" />
+
+
+        <source-file src="res/android/xml/file_paths.xml" target-dir="res/xml/" />
+
+	
+		<source-file src="res/android/drawable-xxhdpi/vw_ic_arrow_down.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+        <source-file src="res/android/drawable-xxhdpi/vw_ic_audio.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+        <source-file src="res/android/drawable-xxhdpi/vw_ic_back.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+        <source-file src="res/android/drawable-xxhdpi/vw_ic_camera.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+        <source-file src="res/android/drawable-xxhdpi/vw_ic_checked.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+        <source-file src="res/android/drawable-xxhdpi/vw_ic_checked_audio.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+        <source-file src="res/android/drawable-xxhdpi/vw_ic_excel.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+        <source-file src="res/android/drawable-xxhdpi/vw_ic_file.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+        <source-file src="res/android/drawable-xxhdpi/vw_ic_pdf.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+        <source-file src="res/android/drawable-xxhdpi/vw_ic_ppt.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+        <source-file src="res/android/drawable-xxhdpi/vw_ic_record_audio.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+        <source-file src="res/android/drawable-xxhdpi/vw_ic_txt.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+        <source-file src="res/android/drawable-xxhdpi/vw_ic_uncheck.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+        <source-file src="res/android/drawable-xxhdpi/vw_ic_uncheck_audio.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+        <source-file src="res/android/drawable-xxhdpi/vw_ic_video_camera.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+        <source-file src="res/android/drawable-xxhdpi/vw_ic_word.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+
+    </platform>
+</plugin>
