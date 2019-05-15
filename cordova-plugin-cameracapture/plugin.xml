@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-cameracapture"
+ version="0.0.1"
+	xmlns="http://apache.org/cordova/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>CameraCapture</name>
+	<js-module name="CameraCapture" src="www/CameraCapture.js">
+		<clobbers target="cordova.plugins.CameraCapture" />
+	</js-module>
+	<platform name="android">
+	 <!-- <framework src="com.github.bumptech.glide:glide:3.7.0" /> -->
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="CameraCapture">
+			  <param name="android-package" value="com.cordova.sdk.cameracapture.CameraCapture" />
+			</feature>
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+		   <activity
+            android:name="com.cordova.sdk.cameracapture.PhotoVideoRedirectActivity"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.cordova.sdk.cameracapture.WhatsappCameraActivity"
+            android:theme="@style/Theme.AppCompat.Light" android:screenOrientation="behind"></activity>
+        <activity android:name="com.cordova.sdk.cameracapture.InitialActivity"
+            android:theme="@style/Theme.AppCompat.Light" />
+		</config-file>
+
+	<config-file target="AndroidManifest.xml" parent="/manifest">
+		<uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CAMERA" />
+	<uses-feature android:name="android.hardware.camera.front" />
+    <uses-feature android:name="android.hardware.microphone" />
+    <uses-feature android:name="android.hardware.camera2" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="true" />
+    <uses-feature android:name="android.hardware.camera.flash" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+		  
+		</config-file>
+				<source-file src="src/android/CameraCapture.java" target-dir="src/com/cordova/sdk/cameracapture/" />
+				<!-- <source-file src="src/android/PhotoVideoRedirectActivity.java" target-dir="src/com/cordova/sdk/cameracapture/" /> -->
+				<source-file src="src/android/RunTimePermission.java" target-dir="src/com/cordova/sdk/cameracapture/" />
+				<source-file src="src/android/WhatsappCameraActivity.java" target-dir="src/com/cordova/sdk/cameracapture/" />
+				<source-file src="src/android/InitialActivity.java" target-dir="src/com/cordova/sdk/cameracapture/" />
+
+				<source-file src="res/android/drawable/bg_record_video.xml" target-dir="res/drawable/" />
+				<source-file src="res/android/drawable/shape_tags.xml" target-dir="res/drawable/" />
+				<source-file src="res/android/drawable/shape_white.xml" target-dir="res/drawable/" />
+
+
+					<!-- <source-file src="res/android/layout/activity_photovideo_redirect.xml" target-dir="res/layout/" /> -->
+					<source-file src="res/android/layout/activity_start.xml" target-dir="res/layout/" />
+					<source-file src="res/android/layout/whatsapp_activity_camera.xml" target-dir="res/layout/" />
+
+				<source-file src="res/android/drawable-xxhdpi/ic_back.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+				<source-file src="res/android/drawable-xxhdpi/ic_camera1.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+				<source-file src="res/android/drawable-xxhdpi/ic_capture.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+				 <source-file src="res/android/drawable-xxhdpi/ic_galery.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+				<source-file src="res/android/drawable-xxhdpi/ic_person.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+				<source-file src="res/android/drawable-xxhdpi/ic_photo_cont.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+					<source-file src="res/android/drawable-xxhdpi/ic_video.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+					<source-file src="res/android/drawable-xxhdpi/red_dot.png" target-dir="app/src/main/res/drawable-xxhdpi/" />
+
+
+				<source-file src="res/android/drawable-xxxhdpi/ic_change_camera.png" target-dir="app/src/main/res/drawable-xxxhdpi/" />
+				<source-file src="res/android/drawable-xxxhdpi/ic_check.png" target-dir="app/src/main/res/drawable-xxxhdpi/" />
+				<source-file src="res/android/drawable-xxxhdpi/ic_close.png" target-dir="app/src/main/res/drawable-xxxhdpi/" />
+				<source-file src="res/android/drawable-xxxhdpi/ic_flash_auto.png" target-dir="app/src/main/res/drawable-xxxhdpi/" />
+				<source-file src="res/android/drawable-xxxhdpi/ic_flash_off.png" target-dir="app/src/main/res/drawable-xxxhdpi/" />
+				<source-file src="res/android/drawable-xxxhdpi/ic_flash_on.png" target-dir="app/src/main/res/drawable-xxxhdpi/" />
+
+
+
+					<source-file src="res/android/values/dimens.xml" target-dir="res/values/" />
+						 <config-file parent="/resources" target="app/src/main/res/values/colors.xml">
+					  <!-- <color name="colorPrimary">#3F51B5</color>
+						<color name="colorPrimaryDark">#303F9F</color>
+						<color name="colorAccent">#FF4081</color> -->
+								<color name="light_blank">#212121</color>
+							 <color name="selected_option">#373B3E</color>
+							<color name="red">#D72026</color>
+							
+					</config-file> 
+					<config-file parent="/resources" target="/res/values/strings.xml">
+					<string name="file_limit_size_upload_format">Files must be less than %sMB</string>
+					<!-- <color name="light_blank">#212121</color>
+							 <color name="selected_option">#373B3E</color>
+							<color name="red">#D72026</color> -->
+					</config-file>
+                     <!-- <source-file src="res/android/values/colors.xml" target-dir="res/values/" /> -->
+				<!-- <config-file parent="/resources" target="/res/values/styles.xml">
+								<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+					<item name="colorPrimary">@color/colorPrimary</item>
+					<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+					<item name="colorAccent">@color/colorAccent</item>
+					</style>
+					</config-file> -->
+					
+			   
+				<source-file src="res/android/values-w820dp/dimens.xml" target-dir="res/values-w820dp/" />
+
+
+
+
+
+	</platform>
+</plugin>
